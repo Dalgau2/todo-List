@@ -8,25 +8,32 @@ import "./todo.css";
 import TodoUlList from "./todoUl";
 import DoneTodo from "./DoneTodo";
 const TodoList = () => {
+
+  // getting value from the  state 
   const todoTask = useSelector((state) => {
     return state.todo.todos;
   });
-  const [todoString, setTodoString] = useState();
+  // usestae for get the string from input
+  const [todoString, setTodoString] = useState("");
   const [isTrue, setIsTrue] = useState(false);
   const dispatch = useDispatch();
-  //function for get the value from input
+  //function for get the value from input 
   const handleChange = (e) => {
     setTodoString(e.target.value);
   };
   //function for add the todo in list
   const handleAdd = () => {
-    const data = { todo: todoString };
-    dispatch(addTodo(data));
-    console.log(todoString, "tododtring");
-    setTodoString("");
-    toast.success("TODO IS ADD");
+    if (todoString.length >= 1) {
+      const data = { todo: todoString };
+      dispatch(addTodo(data));
+      console.log(todoString, "tododtring");
+      setTodoString("");
+      toast.success("TODO IS ADD");
+    } else {
+      toast.error("please add todo");
+    }
   };
-  // show the done todos
+  // function for show complete Todos
   const handleShow = () => {
     setIsTrue(!isTrue);
   };
@@ -42,13 +49,13 @@ const TodoList = () => {
         <h1 className="app-header">TO DO LIST</h1>
         <div className="add-task">
           <input
+            required
             type="text"
             placeholder="Add New Task"
             v-model="tasks.name"
             className="task-input"
             onChange={handleChange}
             value={todoString}
-            required="true"
           />
           <input
             type="submit"
