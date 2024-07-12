@@ -8,8 +8,7 @@ import "./todo.css";
 import TodoUlList from "./todoUl";
 import DoneTodo from "./DoneTodo";
 const TodoList = () => {
-
-  // getting value from the  state 
+  // getting value from the  state
   const todoTask = useSelector((state) => {
     return state.todo.todos;
   });
@@ -17,7 +16,7 @@ const TodoList = () => {
   const [todoString, setTodoString] = useState("");
   const [isTrue, setIsTrue] = useState(false);
   const dispatch = useDispatch();
-  //function for get the value from input 
+  //function for get the value from input
   const handleChange = (e) => {
     setTodoString(e.target.value);
   };
@@ -68,9 +67,11 @@ const TodoList = () => {
         {/* ul li component */}
         <TodoUlList />
       </motion.div>
+      {/* Done todos component  */}
       {isTrue ? (
         <div>
           <div>
+            {/* done todos componet */}
             <DoneTodo />
           </div>
           <Button

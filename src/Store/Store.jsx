@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { todoReducer,addTodo,removeTodo ,editTodo} from "./Slice/TodoSlice";
+import { todoReducer,addTodo,removeTodo } from "./Slice/TodoSlice";
 import { markdone,donetodoReducer } from "./Slice/doneTodoSlice";
 const rootReducer = {
   todo: todoReducer,
@@ -13,4 +13,4 @@ const store = configureStore({
       serializableCheck: false,
     }),
 });
-export {store,addTodo,removeTodo,markdone,editTodo}
+export {store,addTodo,removeTodo,markdone}

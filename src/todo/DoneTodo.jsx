@@ -1,8 +1,7 @@
 import { Box } from "@mui/material";
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import EditIcon from "@mui/icons-material/Edit";
-import { useDispatch, useSelector } from "react-redux";
-import { removeTodo, markdone, editTodo } from "../Store/Store";
+import { useSelector } from "react-redux";
 import "./todo.css";
 
 const DoneTodo = () => {
