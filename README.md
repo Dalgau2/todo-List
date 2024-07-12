@@ -23,3 +23,5 @@ where is use that todo into an array all the completed todsare push on tha array
 addtodo,
 delete todo
 mark as complted todo
+<!-- To Perevent the todo lost  after the refresh the browser -->
+to prevet the todo lost .i use the redux-persist .it helps to store the data in local storage
